@@ -637,3 +637,36 @@
 @media (max-width: 1024px) {
   .journey-track::before { display: none; }
 }
+
+/* --- Section Padding overrides for tighter, optimized blank spaces --- */
+.section,
+.about-story,
+.careers-cta,
+.tarl-section,
+.contact-section,
+.awards-section,
+.media-section,
+.financials-section,
+.partners-section,
+.annual-reports-section,
+.team-section {
+  padding-top: 3.5rem !important; /* py-14 (56px) on mobile */
+  padding-bottom: 3.5rem !important;
+}
+
+@media (min-width: 768px) {
+  .section,
+  .about-story,
+  .careers-cta,
+  .tarl-section,
+  .contact-section,
+  .awards-section,
+  .media-section,
+  .financials-section,
+  .partners-section,
+  .annual-reports-section,
+  .team-section {
+    padding-top: 5.5rem !important; /* py-22 (88px) on desktop (down from py-24 / 96px) */
+    padding-bottom: 5.5rem !important;
+  }
+}

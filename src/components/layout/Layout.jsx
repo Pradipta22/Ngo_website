@@ -53,7 +53,7 @@ export default function Layout() {
       />
       
       {/* Router Outlet for rendering page content */}
-      <main className="flex-grow pt-[84px] md:pt-[92px]">
+      <main className="flex-grow">
         <Outlet />
       </main>
       
