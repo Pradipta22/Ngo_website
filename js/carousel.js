@@ -15,7 +15,7 @@ class HeroCarousel {
     this.currentIndex = 0;
     this.totalSlides = this.slides.length;
     this.autoplayInterval = null;
-    this.autoplayDelay = 5000;
+    this.autoplayDelay = 3000;
     this.isTransitioning = false;
 
     // Touch

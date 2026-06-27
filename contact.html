@@ -19,9 +19,16 @@
 
 <main>
   <section class="page-hero" style="background-image: url('images/hero/slide3.png')">
+    <div class="page-hero__overlay"></div>
     <div class="container">
-      <h1>Contact Us</h1>
-      <div class="page-hero__breadcrumb">Home &gt; Contact Us</div>
+      <div class="page-hero__content">
+        <h1 class="page-hero__title">Contact Us</h1>
+        <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html" class="page-hero__breadcrumb-link">Home</a>
+          <span class="page-hero__breadcrumb-sep">›</span>
+          <span class="page-hero__breadcrumb-current">Contact Us</span>
+        </nav>
+      </div>
     </div>
   </section>
 
@@ -30,86 +37,96 @@
       <div class="contact-grid">
 
         <div class="contact-form-wrapper reveal-left">
-          <h2>Send Us a Message</h2>
-          <p>Have a question or want to get involved? Fill out the form below and we'll get back to you as soon as possible.</p>
+          <h2 class="contact-form__title">Send Us a Message</h2>
+          <p class="contact-form__subtitle">Have a question or want to get involved? Fill out the form below and we'll get back to you as soon as possible.</p>
           <form id="contact-form">
             <div class="form-row">
               <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Your full name" required>
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required>
               </div>
               <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Your email address" required>
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="Your email address" required>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-input" placeholder="Your phone number">
               </div>
               <div class="form-group">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="Message subject" required>
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" id="subject" name="subject" class="form-input" placeholder="Message subject" required>
               </div>
             </div>
             <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Write your message here..." rows="5" required></textarea>
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-textarea" placeholder="Write your message here..." rows="5" required></textarea>
             </div>
             <button type="submit" class="form-submit-btn">
               <span class="btn-text">Send Message →</span>
-              <span class="btn-loader"></span>
+              <span class="btn-loader"><span class="btn-loader__spinner"></span></span>
             </button>
           </form>
         </div>
 
         <div class="contact-info reveal-right">
-          <h2>Get In Touch</h2>
+          <h2 class="contact-info__title">Get In Touch</h2>
+          <p class="contact-info__subtitle">Have questions or want to collaborate? Reach out to us directly.</p>
+          
           <div class="contact-info__card">
             <div class="contact-info__card-icon">📞</div>
             <div class="contact-info__card-content">
-              <h4>Phone</h4>
-              <p><a href="tel:+1XXXXXXXXXX">+1 XXX XXX XXXX</a></p>
-              <p><a href="tel:+1XXXXXXXXXX">+1 XXX XXX XXXX</a></p>
+              <h4 class="contact-info__card-title">Phone</h4>
+              <p class="contact-info__card-text"><a href="tel:+1XXXXXXXXXX" class="contact-info__card-link">+1 XXX XXX XXXX</a></p>
+              <p class="contact-info__card-text"><a href="tel:+1XXXXXXXXXX" class="contact-info__card-link">+1 XXX XXX XXXX</a></p>
             </div>
           </div>
+          
           <div class="contact-info__card">
             <div class="contact-info__card-icon">📧</div>
             <div class="contact-info__card-content">
-              <h4>Email</h4>
-              <p><a href="mailto:info@ngo.org">info@ngo.org</a></p>
-              <p><a href="mailto:support@ngo.org">support@ngo.org</a></p>
+              <h4 class="contact-info__card-title">Email</h4>
+              <p class="contact-info__card-text"><a href="mailto:info@ngo.org" class="contact-info__card-link">info@ngo.org</a></p>
+              <p class="contact-info__card-text"><a href="mailto:support@ngo.org" class="contact-info__card-link">support@ngo.org</a></p>
             </div>
           </div>
+          
           <div class="contact-info__card">
             <div class="contact-info__card-icon">📍</div>
             <div class="contact-info__card-content">
-              <h4>Address</h4>
-              <p>123 NGO Street<br>City, State<br>Country</p>
+              <h4 class="contact-info__card-title">Address</h4>
+              <p class="contact-info__card-text">123 NGO Street<br>City, State<br>Country</p>
             </div>
           </div>
+          
           <div class="contact-info__card">
             <div class="contact-info__card-icon">🕐</div>
             <div class="contact-info__card-content">
-              <h4>Working Hours</h4>
-              <p>Mon – Fri: 9:00 AM – 6:00 PM</p>
-              <p>Sat: 10:00 AM – 2:00 PM</p>
+              <h4 class="contact-info__card-title">Working Hours</h4>
+              <p class="contact-info__card-text">Mon – Fri: 9:00 AM – 6:00 PM</p>
+              <p class="contact-info__card-text">Sat: 10:00 AM – 2:00 PM</p>
             </div>
-          </div>
-          <div class="contact-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.123456!2d72.877!3d19.076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA0JzMzLjYiTiA3MsKwNTInMzcuMiJF!5e0!3m2!1sen!2sin!4v1" height="300" style="border:0;width:100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Office Location"></iframe>
           </div>
         </div>
 
       </div>
+
+      <!-- Balanced Full Width Map Section -->
+      <div class="contact-map-wrapper reveal">
+        <div class="contact-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.123456!2d72.877!3d19.076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA0JzMzLjYiTiA3MsKwNTInMzcuMiJF!5e0!3m2!1sen!2sin!4v1" style="border:0;width:100%;height:100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Office Location"></iframe>
+        </div>
+      </div>
+
     </div>
   </section>
 </main>
 
 <footer class="footer" id="footer"><div class="container"><div class="footer__top"><div class="footer__brand"><div class="footer__logo"><div class="footer__logo-icon">🌱</div><div class="footer__logo-text">HopeRise Foundation</div></div><p class="footer__desc">Empowering communities through education, health, and sustainable development. Together, we create lasting change for a better tomorrow.</p><div class="footer__social"><a href="#" class="footer__social-link" aria-label="Facebook">📘</a><a href="#" class="footer__social-link" aria-label="Instagram">📸</a><a href="#" class="footer__social-link" aria-label="LinkedIn">💼</a><a href="#" class="footer__social-link" aria-label="YouTube">▶️</a><a href="#" class="footer__social-link" aria-label="X">✖️</a></div></div><div><h4 class="footer__col-title">Quick Links</h4><div class="footer__links"><a href="index.html" class="footer__link">→ Home</a><a href="about.html" class="footer__link">→ About Us</a><a href="index.html#reach" class="footer__link">→ Our Reach</a><a href="index.html#timeline" class="footer__link">→ Stories</a><a href="contact.html" class="footer__link">→ Contact</a></div></div><div><h4 class="footer__col-title">Contact</h4><div class="footer__contact-item"><span class="footer__contact-icon">📞</span><div><div class="footer__contact-label">Phone</div><div>+1 XXX XXX XXXX</div></div></div><div class="footer__contact-item"><span class="footer__contact-icon">📧</span><div><div class="footer__contact-label">Email</div><div>info@ngo.org</div></div></div><div class="footer__contact-item"><span class="footer__contact-icon">🛟</span><div><div class="footer__contact-label">Support</div><div>support@ngo.org</div></div></div></div><div><h4 class="footer__col-title">Address</h4><div class="footer__contact-item"><span class="footer__contact-icon">📍</span><div>123 NGO Street<br>City, State<br>Country</div></div><div class="footer__map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.123456!2d72.877!3d19.076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA0JzMzLjYiTiA3MsKwNTInMzcuMiJF!5e0!3m2!1sen!2sin!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Office Location"></iframe></div></div></div><div class="footer__bottom"><p>&copy; 2025 HopeRise Foundation. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p></div></div></footer>
 
-<div class="help-float" id="help-float"><div class="help-float__menu"><div class="help-float__menu-title">How May I Help You?</div><div class="help-float__menu-section"><div class="help-float__menu-label">Get Involved</div><a href="#donate" class="help-float__menu-link"><span class="icon">💛</span> Donate</a><a href="#volunteer" class="help-float__menu-link"><span class="icon">🙋</span> Become a Volunteer</a><a href="#" class="help-float__menu-link"><span class="icon">👦</span> Sponsor a Child</a><a href="#" class="help-float__menu-link"><span class="icon">🤝</span> Partner With Us</a><a href="contact.html" class="help-float__menu-link"><span class="icon">📋</span> Request Information</a><a href="contact.html" class="help-float__menu-link"><span class="icon">🛟</span> Contact Support</a><a href="#" class="help-float__menu-link"><span class="icon">❓</span> FAQ</a></div><div class="help-float__menu-section"><div class="help-float__menu-label">Quick Links</div><a href="index.html" class="help-float__menu-link"><span class="icon">🏠</span> Home</a><a href="about.html" class="help-float__menu-link"><span class="icon">📖</span> About Us</a><a href="index.html#reach" class="help-float__menu-link"><span class="icon">🌍</span> Our Reach</a><a href="index.html#timeline" class="help-float__menu-link"><span class="icon">⭐</span> Stories</a><a href="contact.html" class="help-float__menu-link"><span class="icon">📧</span> Contact</a></div></div><button class="help-float__btn" aria-label="Help menu">❓</button></div>
+<a href="https://wa.me/917205626779" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.135-1.348a9.923 9.923 0 0 0 4.877 1.28h.004c5.505 0 9.989-4.478 9.99-9.985A9.983 9.983 0 0 0 12.012 2zm5.835 14.12c-.256.726-1.5 1.332-2.054 1.403-.497.064-1.15.088-1.847-.132a10.638 10.638 0 0 1-4.81-3.125 11.232 11.232 0 0 1-2.128-3.66c-.394-.678-.813-1.514-.813-2.328 0-1.07.56-1.58.76-1.78a1.368 1.368 0 0 1 .99-.464c.15 0 .31.004.44.012.35.02.52.046.75.52.26.544.896 2.184.974 2.344.078.16.13.344.026.554-.104.21-.156.34-.31.524-.156.184-.326.41-.466.55-.156.156-.32.326-.136.638a7.828 7.828 0 0 0 1.48 1.83 8.397 8.397 0 0 0 2.215 1.366c.31.144.5.124.69-.092.186-.216.812-.94.103-1.272-.71-.332-1.19-.276-1.472-.092-.124.08-.21.134-.388.08a4.67 4.67 0 0 1-1.396-.865 5.16 5.16 0 0 1-1.516-1.884c-.16-.272.16-.254.454-.543.23-.226.31-.382.467-.64.078-.13.04-.246-.02-.352-.06-.106-.52-1.258-.716-1.728-.19-.462-.39-.398-.535-.406-.124-.006-.27-.006-.414-.006a.795 0 0 0-.58.272c-.2.22-.76.74-.76 1.808s.77 2.096.88 2.246c.11.15 1.516 2.316 3.676 3.244.515.22 1.025.353 1.385.467.523.166 1 .142 1.378.086.42-.062 1.3-.532 1.482-1.045.18-.514.18-.956.13-1.045-.05-.09-.18-.144-.38-.244z"/></svg></a>
 
 <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
 
