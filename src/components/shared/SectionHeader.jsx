@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function SectionHeader({ label, title, subtitle, className = '' }) {
   return (
-    <div className={`text-center max-w-3xl mx-auto mb-8 md:mb-12 px-4 reveal-up ${className}`}>
+    <div className={`text-center max-w-3xl mx-auto mb-8 md:mb-12 px-4 ${className}`}>
       {label && (
         <span className="inline-block text-xs uppercase tracking-widest font-semibold text-primary mb-3">
           {label}
