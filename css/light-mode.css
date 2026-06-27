@@ -72,9 +72,10 @@
 
 .header:not(.scrolled) .header__volunteer-btn {
   color: #FFFFFF !important;
-  border-color: rgba(255, 255, 255, 0.5) !important;
-  background: rgba(0, 0, 0, 0.15) !important;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
+  border-color: #FFFFFF !important;
+  background: rgba(0, 0, 0, 0.28) !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15) !important;
 }
 
 .header:not(.scrolled) .header__volunteer-btn:hover {
@@ -430,4 +431,20 @@
 
 .carousel__slide-buttons .btn--primary:hover {
   box-shadow: 0 6px 28px rgba(245, 166, 35, 0.6) !important;
+}
+
+/* Secondary Buttons: replace white-on-light-gray with highly visible warm amber styling */
+.btn--secondary {
+  background: var(--color-primary-light) !important;
+  color: var(--color-primary-dark) !important;
+  border: 2px solid var(--color-primary-light) !important;
+  box-shadow: var(--shadow-sm) !important;
+  text-shadow: none !important;
+}
+
+.btn--secondary:hover {
+  background: var(--color-primary) !important;
+  color: white !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.25) !important;
 }

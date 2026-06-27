@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initDonateBanner();
   setActiveNavLink();
+  initVideoModal();
+  initTimelineProgress();
 });
 
 /* =========================
@@ -265,3 +267,80 @@ document.addEventListener('click', (e) => {
     window.scrollTo({ top, behavior: 'smooth' });
   }
 });
+
+/* =========================
+   VIDEO POPUP MODAL
+   ========================= */
+function initVideoModal() {
+  const watchBtns = document.querySelectorAll('#watch-story-btn, .btn--video');
+  const modal = document.getElementById('video-modal');
+  if (!modal) return;
+  const overlay = document.getElementById('video-modal-overlay');
+  const closeBtn = document.getElementById('video-modal-close');
+  const iframe = document.getElementById('video-iframe');
+  if (!iframe) return;
+  const originalSrc = iframe.src;
+
+  watchBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      iframe.src = originalSrc + (originalSrc.includes('?') ? '&' : '?') + 'autoplay=1';
+    });
+  });
+
+  const closeModal = () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    iframe.src = originalSrc; // Reset src to stop playback
+  };
+
+  closeBtn?.addEventListener('click', closeModal);
+  overlay?.addEventListener('click', closeModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+}
+
+/* =========================
+   INTERACTIVE TIMELINE
+   ========================= */
+function initTimelineProgress() {
+  const timeline = document.querySelector('.timeline');
+  const fill = document.querySelector('.timeline__progress-fill');
+  const items = document.querySelectorAll('.timeline__item');
+  if (!timeline || !fill || !items.length) return;
+
+  const handleScroll = () => {
+    const timelineRect = timeline.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    
+    // Calculate how much of the timeline is scrolled past the center of the viewport
+    const triggerPoint = windowHeight * 0.55;
+    const timelineTop = timelineRect.top;
+    const timelineHeight = timelineRect.height;
+    
+    let progressHeight = triggerPoint - timelineTop;
+    if (progressHeight < 0) progressHeight = 0;
+    if (progressHeight > timelineHeight) progressHeight = timelineHeight;
+    
+    const percentage = (progressHeight / timelineHeight) * 100;
+    fill.style.height = `${percentage}%`;
+    
+    // Highlight active items
+    items.forEach(item => {
+      const itemTop = item.getBoundingClientRect().top;
+      if (itemTop < triggerPoint) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll(); // Trigger initially
+}
