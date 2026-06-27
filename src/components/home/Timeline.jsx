@@ -41,7 +41,19 @@ export default function Timeline() {
   const itemsRef = useRef([]);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateTimelineProgress();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    const updateTimelineProgress = () => {
       const timeline = timelineRef.current;
       const progressFill = fillRef.current;
       const items = itemsRef.current;
@@ -76,9 +88,9 @@ export default function Timeline() {
       });
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     // Trigger once initially after render
-    setTimeout(handleScroll, 100);
+    setTimeout(updateTimelineProgress, 100);
     
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

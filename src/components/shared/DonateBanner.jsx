@@ -5,23 +5,35 @@ export default function DonateBanner() {
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+    let timer;
+
     const handleScroll = () => {
       if (dismissed) return;
       
-      // Show banner after scrolling 600px
-      if (window.scrollY > 600) {
-        // Subtle delay before showing
-        const timer = setTimeout(() => {
-          setVisible(true);
-        }, 1000);
-        return () => clearTimeout(timer);
-      } else {
-        setVisible(false);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // Show banner after scrolling 600px
+          if (window.scrollY > 600) {
+            // Subtle delay before showing
+            timer = setTimeout(() => {
+              setVisible(true);
+            }, 1000);
+          } else {
+            clearTimeout(timer);
+            setVisible(false);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
   }, [dismissed]);
 
   const handleDismiss = () => {

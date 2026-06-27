@@ -50,7 +50,7 @@ export default function HeroCarousel({ onWatchVideo }) {
   // Auto-advance slides every 5 seconds (5000ms)
   useEffect(() => {
     setProgress(0);
-    const intervalTime = 50; // increment step in ms
+    const intervalTime = 250; // increment step in ms (throttles updates from 20/s to 4/s)
     const totalDuration = 5000;
     const increment = (intervalTime / totalDuration) * 100;
 
